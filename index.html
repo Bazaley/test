@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test</title>
+    <link rel="stylesheet" href="./css/main.min.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="top-line">
+          <p class="top-line__text">Lorem ipsum</p>
+          <form class="form-search">
+            <input
+              class="form-search__input"
+              type="text"
+              name="search"
+              placeholder="Search"
+            />
+          </form>
+        </div>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="container">
+        <div class="slider">
+          <ul class="users-list"></ul>
+        </div>
+
+        <div class="btns-line">
+          <button type="button" class="btns-line__btn btns-line__btn-previous">
+            <svg
+              class="btns-line__icon btns-line__icon_previous"
+              width="18"
+              height="36"
+            >
+              <use href="./images/symbol-defs.svg#icon-left"></use>
+            </svg>
+            Previous
+          </button>
+          <button type="button" class="btns-line__btn btns-line__btn-next">
+            Next
+            <svg
+              class="btns-line__icon btns-line__icon_next"
+              width="18"
+              height="36"
+            >
+              <use href="./images/symbol-defs.svg#icon-right"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+    <script src="./js/cards.js" type="module"></script>
+  </body>
+</html>

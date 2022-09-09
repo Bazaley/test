@@ -1,0 +1,27 @@
+.header {
+  padding-top: 50px;
+}
+
+.top-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-line__text {
+  @include font(400, 24px, 30px);
+}
+
+.form-search__input {
+  min-width: 248px;
+  padding: 20px 0 20px 35px;
+  background-color: #333348;
+  border-radius: 40px;
+  border: none;
+  @include font(400, 24px, 30px);
+  color: #eeeeee;
+
+  &::placeholder {
+    color: #eeeeee;
+  }
+}
