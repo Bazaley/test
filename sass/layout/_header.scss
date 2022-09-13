@@ -1,5 +1,12 @@
 .header {
-  padding-top: 50px;
+  padding-top: 20px;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 30px;
+  }
+  @media screen and (min-width: 1200px) {
+    padding-top: 50px;
+  }
 }
 
 .top-line {
@@ -13,13 +20,17 @@
 }
 
 .form-search__input {
-  min-width: 248px;
-  padding: 20px 0 20px 35px;
+  padding: 10px 0 10px 30px;
   background-color: #333348;
   border-radius: 40px;
   border: none;
-  @include font(400, 24px, 30px);
+  @include font(400, 15px, 30px);
   color: #eeeeee;
+
+  @media screen and (min-width: 768px) {
+    padding: 20px 0 20px 35px;
+    @include font(400, 24px, 30px);
+  }
 
   &::placeholder {
     color: #eeeeee;
