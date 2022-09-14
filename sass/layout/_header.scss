@@ -15,8 +15,28 @@
   align-items: center;
 }
 
-.top-line__text {
-  @include font(400, 24px, 30px);
+.top-line__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  padding: 10px 0;
+  background-color: #333348;
+  border-radius: 40px;
+  border: none;
+  color: #eee;
+  @include font(400, 17px, 20px);
+  cursor: pointer;
+
+  @media screen and (min-width: 768px) {
+    width: 140px;
+    padding: 20px 0;
+    @include font(400, 24px, 30px);
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 210px;
+  }
 }
 
 .form-search__input {

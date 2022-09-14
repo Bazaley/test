@@ -25,6 +25,7 @@
 .btns-line__btn {
   display: flex;
   align-items: center;
+  min-width: 165px;
   border: none;
   background-color: transparent;
   @include font(400, 20px, 34px);
@@ -49,5 +50,17 @@
 
   @media screen and (min-width: 768px) {
     margin-left: 30px;
+  }
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  position: relative;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  &::after {
+    content: "";
   }
 }

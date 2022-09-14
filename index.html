@@ -10,7 +10,7 @@
     <header class="header">
       <div class="container">
         <div class="top-line">
-          <p class="top-line__text">Lorem ipsum</p>
+          <p class="top-line__btn">Sort</p>
           <form class="form-search">
             <input
               class="form-search__input"
@@ -36,7 +36,10 @@
         </div>
 
         <div class="btns-line">
-          <button type="button" class="btns-line__btn btns-line__btn-previous">
+          <button
+            type="button"
+            class="swiper-button-prev btns-line__btn btns-line__btn-previous"
+          >
             <svg
               class="btns-line__icon btns-line__icon_previous"
               width="18"
@@ -46,7 +49,11 @@
             </svg>
             Previous
           </button>
-          <button type="button" class="btns-line__btn btns-line__btn-next">
+
+          <button
+            type="button"
+            class="swiper-button-next btns-line__btn btns-line__btn-next"
+          >
             Next
             <svg
               class="btns-line__icon btns-line__icon_next"
@@ -59,6 +66,9 @@
         </div>
       </div>
     </section>
+    <div class="backdrop is-hidden">
+      <div class="modal"></div>
+    </div>
     <script src="./js/cards.js" type="module"></script>
     <script src="./js/slider.js" type="module"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>

@@ -3,11 +3,14 @@ const refs = {
   users: document.querySelector(".users"),
   postsList: document.querySelector(".posts__list"),
   usersList: document.querySelector(".users-list"),
+  sortBtn: document.querySelector(".top-line__btn"),
   btnPrevious: document.querySelector(".btns-line__btn-previous"),
   btnNext: document.querySelector(".btns-line__btn-next"),
+  modal: document.querySelector(".modal"),
+  backdrop: document.querySelector(".backdrop"),
 };
 
-// refs.usersListBtn.addEventListener("click");
+// ======================= users =============================
 
 function fetchResponseUsers() {
   return fetch("https://jsonplaceholder.typicode.com/users").then((respons) =>
@@ -34,6 +37,8 @@ function renderUsersList(users) {
   refs.usersList.insertAdjacentHTML("beforeend", murkup);
 }
 
+// ======================= posts =============================
+
 window.getPostsByUserId = function (id) {
   return fetch(`https://jsonplaceholder.typicode.com/posts?userId=${id}`).then(
     (respons) => respons.json().then((posts) => renderPostsList(posts))
@@ -57,17 +62,62 @@ function renderPostsList(posts) {
   refs.postsList.insertAdjacentHTML("beforeend", murkup);
 }
 
-refs.formSearch.addEventListener("input", sort);
+// ======================= sort =============================
 
-function sort(event) {
-  const userslist = document.querySelectorAll(".users-list__user-name");
-  const r = [...userslist];
-  console.log(r[0].textContent);
+refs.sortBtn.addEventListener("click", onSortBrnClick);
 
-  const markupSorted = [...r].sort((firstElem, secondElem) =>
-    firstElem.textContent.localeCompare(secondElem.textContent)
+function onSortBrnClick(event) {
+  const userslist = [...document.querySelectorAll(".users-list__item")];
+  userslist.forEach((elem) => console.log(elem.firstElementChild.textContent));
+  const user = [...userslist].sort((a, b) =>
+    a.firstElementChild.textContent.localeCompare(
+      b.firstElementChild.textContent
+    )
   );
-  refs.usersList.append(...markupSorted);
+  console.log(user);
+  refs.usersList.innerHTML = "";
+  refs.usersList.append(...user);
+}
+
+// ======================= search =============================
+
+refs.formSearch.addEventListener("submit", onFormSearchSubmit);
+
+function onFormSearchSubmit(event) {
+  event.preventDefault();
+
+  const { search } = event.target;
+
+  const userslist = [...document.querySelectorAll(".users-list__item")];
+
+  const element = userslist.find(
+    (elem) => elem.firstElementChild.textContent === search.value
+  );
+
+  if (element === undefined) {
+    alert("User not found");
+  } else {
+    openModal();
+    refs.modal.append(...element.children);
+  }
+}
+
+// ======================= modal =============================
+
+function openModal() {
+  refs.backdrop.classList.remove("is-hidden");
+  window.addEventListener("keydown", closeModalByESC);
+}
+
+function closeModal() {
+  refs.backdrop.classList.add("is-hidden");
+  window.removeEventListener("keydown", closeModalByESC);
+}
+
+function closeModalByESC(event) {
+  if (event.code === "Escape") {
+    closeModal();
+  }
 }
 
 window.addEventListener("load", () => {
