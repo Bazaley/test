@@ -4,7 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Test</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+    />
     <link rel="stylesheet" href="./css/main.min.css" />
   </head>
   <body>
@@ -27,9 +32,10 @@
     <section class="section">
       <div class="container">
         <div class="users">
-          <div class="slider">
-            <ul class="users-list"></ul>
+          <div class="swiper mySwiper slider">
+            <ul class="swiper-wrapper users-list"></ul>
           </div>
+
           <div>
             <ul class="posts__list"></ul>
           </div>
@@ -60,5 +66,7 @@
       </div>
     </section>
     <script src="./js/cards.js" type="module"></script>
+    <script src="./js/slider.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
   </body>
 </html>

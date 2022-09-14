@@ -6,7 +6,7 @@ const refs = {
   btnPrevious: document.querySelector(".btns-line__btn-previous"),
   btnNext: document.querySelector(".btns-line__btn-next"),
 };
-// refs.formSearch.addEventListener("input", (event) => {});
+
 // refs.usersListBtn.addEventListener("click");
 
 function fetchResponseUsers() {
@@ -20,12 +20,12 @@ function renderUsersList(users) {
   const murkup = users
     .map(({ id, name, email, phone, website }) => {
       return `
-       <li class="users-list__item">
+       <li class="users-list__item swiper-slide">
              <p class="users-list__user-name text">${name}</p>
             <p class="users-list__user-email text">${email}</p>
             <p class="users-list__user-number text">${phone}</p>
             <p class="users-list__user-site text">${website}</p>
-            <button type="button" class='users-list__btn' onclick='getPostsByUserId(${id})'>All post</button>         
+            <a href='#users'class='users-list__btn' onclick='getPostsByUserId(${id})'>All post</a> 
           </li>
         `;
     })
@@ -55,27 +55,4 @@ function renderPostsList(posts) {
 
   refs.postsList.innerHTML = "";
   refs.postsList.insertAdjacentHTML("beforeend", murkup);
-}
-
-// ======================== slider ============================
-
-refs.btnPrevious.addEventListener("click", onBtnPreviousClick);
-refs.btnNext.addEventListener("click", onBtnNextClick);
-
-let value = 0;
-
-function onBtnNextClick() {
-  value -= 800;
-  if (value < -1600) {
-    value = -1600;
-  }
-  refs.usersList.style.transform = `translateY(${value + "px"})`;
-}
-
-function onBtnPreviousClick() {
-  value += 800;
-  if (value > 0) {
-    value = 0;
-  }
-  refs.usersList.style.transform = `translateY(${value + "px"})`;
 }

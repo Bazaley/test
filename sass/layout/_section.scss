@@ -3,12 +3,13 @@
 }
 
 .slider {
-  height: 770px;
+  height: 500px;
   margin: 0 auto 53px;
   overflow: hidden;
 
   @media screen and (min-width: 768px) {
     width: 700px;
+    height: 770px;
   }
 
   @media screen and (min-width: 1200px) {
@@ -48,11 +49,5 @@
 
   @media screen and (min-width: 768px) {
     margin-left: 30px;
-  }
-}
-
-.users {
-  @media screen and (min-width: 1200px) {
-    display: flex;
   }
 }
