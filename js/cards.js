@@ -20,12 +20,12 @@ function renderUsersList(users) {
   const murkup = users
     .map(({ id, name, email, phone, website }) => {
       return `
-       <li class="users-list__item swiper-slide">
+       <li class="swiper-slide users-list__item">
              <p class="users-list__user-name text">${name}</p>
             <p class="users-list__user-email text">${email}</p>
             <p class="users-list__user-number text">${phone}</p>
             <p class="users-list__user-site text">${website}</p>
-            <a href='#users'class='users-list__btn' onclick='getPostsByUserId(${id})'>All post</a> 
+            <a href='#users'class='users-list__btn' onclick='getPostsByUserId(${id})'>All post</a>
           </li>
         `;
     })
@@ -56,3 +56,25 @@ function renderPostsList(posts) {
   refs.postsList.innerHTML = "";
   refs.postsList.insertAdjacentHTML("beforeend", murkup);
 }
+
+refs.formSearch.addEventListener("input", sort);
+
+function sort(event) {
+  const userslist = document.querySelectorAll(".users-list__user-name");
+  const r = [...userslist];
+  console.log(r[0].textContent);
+
+  const markupSorted = [...r].sort((firstElem, secondElem) =>
+    firstElem.textContent.localeCompare(secondElem.textContent)
+  );
+  refs.usersList.append(...markupSorted);
+}
+
+window.addEventListener("load", () => {
+  const links = `<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+/>
+<link rel="stylesheet" href="./css/main.min.css" />`;
+  document.head.insertAdjacentHTML("beforeend", links);
+});
